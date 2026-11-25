@@ -108,7 +108,7 @@ export function WaitlistForm() {
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="rounded-xl border border-line bg-success-soft p-6 outline-none"
+        className="animate-fade-up rounded-xl border border-line bg-success-soft p-6 outline-none"
       >
         <h3 className="font-serif text-xl font-semibold text-ink">
           {state.alreadyRegistered ? "Zaten listedesiniz." : "Başvurunuz alındı. Teşekkürler!"}
@@ -129,10 +129,11 @@ export function WaitlistForm() {
     <form action={formAction} onSubmit={handleSubmit} noValidate className="space-y-5">
       {state.status === "error" && (
         <p
+          key={JSON.stringify(state)}
           ref={errorSummaryRef}
           tabIndex={-1}
           role="alert"
-          className="rounded-lg border border-danger/40 px-4 py-3 text-sm text-danger outline-none"
+          className="animate-fade-up rounded-lg border border-danger/40 px-4 py-3 text-sm text-danger outline-none"
         >
           {state.message}
         </p>
@@ -241,7 +242,7 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-3 text-base font-semibold text-accent-ink transition-colors hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+        className="inline-flex w-full items-center justify-center rounded-xl bg-accent px-6 py-3.5 text-base font-semibold text-accent-ink transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-accent-hover active:translate-y-0 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-wait disabled:opacity-70 sm:w-auto"
       >
         {pending ? "Gönderiliyor…" : "Betaya katıl"}
       </button>

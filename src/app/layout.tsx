@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="tr"
       className={`${inter.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+      <body className="relative isolate flex min-h-full flex-col overflow-x-clip font-sans">{children}</body>
     </html>
   );
 }
